@@ -1,0 +1,29 @@
+﻿<Window x:Class="AR_ImportHelper.Views.MachineInputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AR_ImportHelper.Views"
+        mc:Ignorable="d"
+        Title="MachineInputDialog" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Machine Name" />
+            <TextBox Name="MachineNameTextBox" Width="200" Margin="5"/>
+
+            <TextBlock Text="ID" />
+            <TextBox Name="IdTextBox" Width="200" Margin="5"/>
+
+            <TextBlock Text="Location" />
+            <TextBox Name="LocationTextBox" Width="200" Margin="5"/>
+
+            <TextBlock Text="Export Location" />
+            <TextBox Name="ExportLocationTextBox" Width="200" Margin="5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+                <Button Content="Cancel" Width="75" Margin="5" Click="CancelButton_Click"/>
+                <Button Content="OK" Width="75" Margin="5" Click="OkButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
