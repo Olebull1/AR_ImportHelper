@@ -60,6 +60,30 @@ namespace AR_ImportHelper.Views
                 Console.WriteLine("User cancelled the dialog.");
             }
         }
+        private void OpenScannerInputDialog()
+        {
+            var dialog = new CPMScannerInput();
+
+            // Show the dialog and check if the user clicked OK
+            dialog.ShowDialog();
+
+            if (dialog.IsConfirmed) // If OK is clicked
+            {
+                // The Result property will contain the input data
+                var location = dialog.Result;
+
+                // Do something with the machine data
+                Console.WriteLine($"Machine Name: {location.RoomName}");
+                Console.WriteLine($"ID: {location.CrystalScannerImportLocation}");
+                ConfigViewModel config = ConfigViewModel.Instance;
+                config.ExamRooms.Add(location);
+            }
+            else
+            {
+                // If Cancel was clicked, handle the cancellation
+                Console.WriteLine("User cancelled the dialog.");
+            }
+        }
 
         // Click event for the hamburger button
         private void HamburgerButton_Hover(object sender, RoutedEventArgs e)
@@ -122,6 +146,7 @@ namespace AR_ImportHelper.Views
         }
         private void AddRoom_Click(object sender, RoutedEventArgs e)
         {
+            OpenScannerInputDialog();
         }
         private void RemoveRoom_Click(object sender, RoutedEventArgs e)
         {

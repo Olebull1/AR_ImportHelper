@@ -58,7 +58,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Add"  Width="120" HorizontalAlignment="Left" Background="Transparent" Margin="10,0,0,0" Grid.Column="1" Click="AddRoom_Click"/>
+                    <Button Content="Add"  Width="120" HorizontalAlignment="Left" Background="Transparent" Margin="10,0,0,0" Grid.Column="1" Click="AddRoom_Click" Height="20" VerticalAlignment="Top"/>
                     <Button Content="Remove" Background="Transparent" HorizontalAlignment="Left" Width="120" Height="20" VerticalAlignment="Top" Margin="10,0,0,0" Click="RemoveRoom_Click" />
                 </Grid>
                 <!-- ListBox for ImportDirs -->
