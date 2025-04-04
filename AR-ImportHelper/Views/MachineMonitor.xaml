@@ -6,9 +6,29 @@
              xmlns:local="clr-namespace:AR_ImportHelper.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Olive">
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="319*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Machine ID #:" Margin="10,5,0,0" HorizontalAlignment="Left" Width="100" Height="23" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding Id}"
-                   FontSize="50"/>
-        <ListBox Margin="0,80,0,0" ItemsSource="{Binding Files}"/>
+           FontSize="12" Margin="105,5,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="272"/>
+        <Label Content="Machine Name:" HorizontalAlignment="Left" Width="100" Height="24" VerticalAlignment="Top" Margin="0,28,0,0"/>
+        <TextBlock Text="{Binding MachineName}"
+           FontSize="12" Margin="105,30,0,0" HorizontalAlignment="Left" Width="272" Height="21" VerticalAlignment="Top"/>
+        <Label Content="Room:" Margin="49,53,0,0" HorizontalAlignment="Left" Width="61" Height="23" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Location}"
+           FontSize="12" Margin="105,56,0,0" HorizontalAlignment="Left" Width="272" Height="21" VerticalAlignment="Top"/>
+        <ListBox Margin="0,1,0,0" ItemsSource="{Binding Files}" Grid.Row="1"/>
+        <Border BorderBrush="Black" BorderThickness="1" Background="White" Grid.Row="2">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Grid.Row="1">
+                <StackPanel Background="White" Orientation="Horizontal" Margin="0,0,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="200">
+                    <Button Content="Delete" Height="30" Width="100"></Button>
+                    <Button Content="Import" Height="30" Width="100"></Button>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

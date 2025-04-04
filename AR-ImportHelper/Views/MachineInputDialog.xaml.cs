@@ -18,39 +18,43 @@ namespace AR_ImportHelper.Views
     {
         public Machines Result { get; private set; }
         public bool IsConfirmed { get; private set; }
-
         public MachineInputDialog()
         {
             InitializeComponent();
+            IsConfirmed = false;
             Result = new Machines();  // Initialize with an empty Machine object
-            IsConfirmed = false;     // Default to false
         }
 
-        // When OK is clicked, populate the Result property and set IsConfirmed to true
+        // When OK is clicked, populate the Result property
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
+            bool filled = true;
             if (MachineNameTextBox.Text == string.Empty)
             {
                 //Icon1 toggle
                 MNameAsterisk.Visibility = Visibility.Visible;
-                return;
+                filled = false;
             }
             if (IDTextBox.Text == string.Empty)
             {
                 //Icon1 toggle
                 IDAsterisk.Visibility = Visibility.Visible;
-                return;
+                filled = false;
             }
             if (LocationTextBox.Text == string.Empty)
             {
                 //Icon1 toggle
                 LocationAsterisk.Visibility = Visibility.Visible;
-                return;
+                filled = false;
             }
             if(ExportDirectoryTextBox.Text == string.Empty)
             {
                 //Icon1 toggle
                 ExportDirAsterisk.Visibility = Visibility.Visible;
+                filled = false;
+            }
+            if (!filled)
+            {
                 return;
             }
             // Capture the values entered by the user
@@ -58,8 +62,6 @@ namespace AR_ImportHelper.Views
             Result.Id = int.TryParse(IDTextBox.Text, out var id) ? id : 0;
             Result.Location = LocationTextBox.Text;
             Result.ExportLocation = ExportDirectoryTextBox.Text;
-
-            // Set confirmation flag to true
             IsConfirmed = true;
             // Close the window
             this.Close();

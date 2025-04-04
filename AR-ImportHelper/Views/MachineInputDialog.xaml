@@ -21,9 +21,9 @@
         <TextBox Text="" Name="LocationTextBox" HorizontalAlignment="Left" Margin="145,114,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="254"/>
         <TextBox Text="" Name="ExportDirectoryTextBox" HorizontalAlignment="Left" Margin="145,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="342,151,0,0" VerticalAlignment="Top" Height="18" Width="57" Click="OpenFolderButton_Click"/>
-        <Label Visibility="Hidden" Content="*" Name="MNameAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,105,0,0" Height="24" VerticalAlignment="Top" />
-        <Label Visibility="Hidden" Content="*" Name="IDAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,142,0,0" Height="24" VerticalAlignment="Top" />
-        <Label Visibility="Hidden" Content="*" Name="LocationAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,66,0,0" Height="24" VerticalAlignment="Top" />
-        <Label Visibility="Hidden" Content="*" Name="ExportDirAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,25,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Visibility="Collapsed" Content="*" Name="MNameAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,105,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Visibility="Collapsed" Content="*" Name="IDAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,142,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Visibility="Collapsed" Content="*" Name="LocationAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,66,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Visibility="Collapsed" Content="*" Name="ExportDirAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,25,0,0" Height="24" VerticalAlignment="Top" />
     </Grid>
 </Window>
