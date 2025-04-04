@@ -127,6 +127,7 @@ namespace AR_ImportHelper.Views
         {
             var selectedItem = CPMScannerDirLbox.SelectedItem as Locations;
             ConfigViewModel config = ConfigViewModel.Instance;
+            //TODO MAKE SURE THERE IS SOMETHING TO REMOVE FIRST
             config.ExamRooms.Remove(selectedItem);
         }
         private void RemoveMachine_Click(object sender, RoutedEventArgs e)

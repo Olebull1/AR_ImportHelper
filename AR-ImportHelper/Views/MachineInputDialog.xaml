@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AR_ImportHelper.Views"
         mc:Ignorable="d"
-        Title="MachineInputDialog" Height="450" Width="800">
+        Title="MachineInputDialog" Height="296" Width="446">
     <Grid>
-        <StackPanel Margin="10">
-            <TextBlock Text="Machine Name" />
-            <TextBox Name="MachineNameTextBox" Width="200" Margin="5"/>
 
-            <TextBlock Text="ID" />
-            <TextBox Name="IdTextBox" Width="200" Margin="5"/>
-
-            <TextBlock Text="Location" />
-            <TextBox Name="LocationTextBox" Width="200" Margin="5"/>
-
-            <TextBlock Text="Export Location" />
-            <TextBox Name="ExportLocationTextBox" Width="200" Margin="5"/>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-                <Button Content="Cancel" Width="75" Margin="5" Click="CancelButton_Click"/>
-                <Button Content="OK" Width="75" Margin="5" Click="OkButton_Click"/>
-            </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5" Height="35">
+            <Button Content="Cancel" Width="75" Margin="5" Click="CancelButton_Click"/>
+            <Button Content="OK" Width="75" Margin="5" Click="OkButton_Click"/>
         </StackPanel>
+        <Label Content="Location:" HorizontalAlignment="Left" Margin="83,108,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="116,69,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Content="Export Directory:" HorizontalAlignment="Left" Margin="43,145,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Content="Machine Name:" HorizontalAlignment="Left" Margin="47,28,0,0" Height="24" VerticalAlignment="Top"/>
+        <TextBox Text="" Name="MachineNameTextBox" HorizontalAlignment="Left" Margin="145,34,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="254"/>
+        <TextBox Text="" Name="IDTextBox" HorizontalAlignment="Left" Margin="145,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="254"/>
+        <TextBox Text="" Name="LocationTextBox" HorizontalAlignment="Left" Margin="145,114,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="254"/>
+        <TextBox Text="" Name="ExportDirectoryTextBox" HorizontalAlignment="Left" Margin="145,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="342,151,0,0" VerticalAlignment="Top" Height="18" Width="57" Click="OpenFolderButton_Click"/>
+        <Label Visibility="Hidden" Content="*" Name="MNameAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,105,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Visibility="Hidden" Content="*" Name="IDAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,142,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Visibility="Hidden" Content="*" Name="LocationAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,66,0,0" Height="24" VerticalAlignment="Top" />
+        <Label Visibility="Hidden" Content="*" Name="ExportDirAsterisk" Foreground="Red" HorizontalAlignment="Left" Margin="131,25,0,0" Height="24" VerticalAlignment="Top" />
     </Grid>
 </Window>

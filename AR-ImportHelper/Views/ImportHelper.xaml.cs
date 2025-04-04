@@ -30,24 +30,26 @@ namespace AR_ImportHelper.Views
         {
             InitializeComponent();
             _mainWindow = dep;
-            GenerateMonitorList();
-            GenerateRadioList();
+            ConfigViewModel config = ConfigViewModel.Instance;
+            if (config.Machines != null)
+            {
+                GenerateMonitorList(config);
+                GenerateRadioList(config);
+            }
             // Set the data context of the window to the 
             //this.DataContext;
         }
-        private void GenerateMonitorList()
+        private void GenerateMonitorList(ConfigViewModel cfg)
         {
-            ConfigViewModel config = ConfigViewModel.Instance;
-            foreach (Machines item in config.Machines)
+            foreach (Machines item in cfg.Machines)
             {
                 MachineMonitor machineMonitor = new MachineMonitor(item);
                 _machineMonitors[item.Id] = machineMonitor;
             }
         }
-        private void GenerateRadioList()
+        private void GenerateRadioList(ConfigViewModel cfg)
         {
-            ConfigViewModel config = ConfigViewModel.Instance;
-            foreach(Machines item in config.Machines)
+            foreach(Machines item in cfg.Machines)
             {
                 RadioButton radioButton = new RadioButton
                 {

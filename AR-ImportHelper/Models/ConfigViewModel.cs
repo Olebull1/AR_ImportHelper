@@ -27,23 +27,8 @@ namespace AR_ImportHelper.Models
         // Private constructor to prevent instantiation from outside
         private ConfigViewModel()
         {
-            //ExamRooms = new ObservableCollection<Locations>
-            //{
-            //    new Locations { RoomName = "Exam 1", CrystalScannerImportLocation = @"C:\Path\To\Scanner1" },
-            //    new Locations { RoomName = "Exam 2", CrystalScannerImportLocation = @"C:\Path\To\Scanner2" },
-            //    new Locations { RoomName = "Exam 3", CrystalScannerImportLocation = @"C:\Path\To\Scanner3" },
-            //    new Locations { RoomName = "Exam 4", CrystalScannerImportLocation = @"C:\Path\To\Scanner4" },
-            //};
-
-            //Machines = new ObservableCollection<Machines>
-            //{
-            //    new Machines { MachineName = "Machine A", Id = 1, Location = "Location 1", ExportLocation = @"C:\Path\To\Export1" },
-            //    new Machines { MachineName = "Machine B", Id = 2, Location = "Location 2", ExportLocation = @"C:\Path\To\Export2" },
-            //    new Machines { MachineName = "Machine C", Id = 3, Location = "Location 3", ExportLocation = @"C:\Path\To\Export3" },
-            //    new Machines { MachineName = "Machine D", Id = 4, Location = "Location 4", ExportLocation = @"C:\Path\To\Export4" },
-            //    new Machines { MachineName = "Machine E", Id = 4, Location = "Location 5", ExportLocation = @"C:\Path\To\Export5" }
-            //};
-            Console.Write("Filler");
+            Machines = new ObservableCollection<Machines>();
+            ExamRooms = new ObservableCollection<Locations>();
             getConfigModelFromJson();
         }
 
@@ -102,11 +87,13 @@ namespace AR_ImportHelper.Models
 
                 // Read the JSON string from the file
                 string jsonString = File.ReadAllText(Constants.Constants.cfgFilePath);
-
-                // Deserialize the JSON string back into an object
-                var config = JsonSerializer.Deserialize<ConfigViewModel>(jsonString);
-                ExamRooms = config.ExamRooms;
-                Machines = config.Machines;
+                if (jsonString != string.Empty)
+                {
+                    // Deserialize the JSON string back into an object
+                    var config = JsonSerializer.Deserialize<ConfigViewModel>(jsonString);
+                    ExamRooms = config.ExamRooms;
+                    Machines = config.Machines;
+                }
             }
             else
             {

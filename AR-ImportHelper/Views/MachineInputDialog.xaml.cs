@@ -5,13 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Microsoft.Win32;
 
 namespace AR_ImportHelper.Views
 {
@@ -33,11 +29,35 @@ namespace AR_ImportHelper.Views
         // When OK is clicked, populate the Result property and set IsConfirmed to true
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
+            if (MachineNameTextBox.Text == string.Empty)
+            {
+                //Icon1 toggle
+                MNameAsterisk.Visibility = Visibility.Visible;
+                return;
+            }
+            if (IDTextBox.Text == string.Empty)
+            {
+                //Icon1 toggle
+                IDAsterisk.Visibility = Visibility.Visible;
+                return;
+            }
+            if (LocationTextBox.Text == string.Empty)
+            {
+                //Icon1 toggle
+                LocationAsterisk.Visibility = Visibility.Visible;
+                return;
+            }
+            if(ExportDirectoryTextBox.Text == string.Empty)
+            {
+                //Icon1 toggle
+                ExportDirAsterisk.Visibility = Visibility.Visible;
+                return;
+            }
             // Capture the values entered by the user
             Result.MachineName = MachineNameTextBox.Text;
-            Result.Id = int.TryParse(IdTextBox.Text, out var id) ? id : 0;
+            Result.Id = int.TryParse(IDTextBox.Text, out var id) ? id : 0;
             Result.Location = LocationTextBox.Text;
-            Result.ExportLocation = ExportLocationTextBox.Text;
+            Result.ExportLocation = ExportDirectoryTextBox.Text;
 
             // Set confirmation flag to true
             IsConfirmed = true;
@@ -50,6 +70,25 @@ namespace AR_ImportHelper.Views
         {
             IsConfirmed = false;
             this.Close();
+        }
+
+        private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Configure open folder dialog box
+            Microsoft.Win32.OpenFolderDialog dialog = new();
+
+            dialog.Multiselect = false;
+            dialog.Title = "Select a folder";
+
+            // Show open folder dialog box
+            bool? result = dialog.ShowDialog();
+
+            // Process open folder dialog box results
+            if (result == true)
+            {
+                // Get the selected folder
+                ExportDirectoryTextBox.Text = dialog.FolderName;
+            }
         }
     }
 }
